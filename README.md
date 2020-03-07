@@ -4,26 +4,37 @@ New version guest book project with aero theme, still ongoing and still no backe
 # Screenshot Project
 
 ## Login Page
-![Login Page](https://drive.google.com/uc?export=view&id=10wK_TId7jdb2KhloqFuV8bCXPR5ITie_)
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=10wK_TId7jdb2KhloqFuV8bCXPR5ITie_" width="600" height="300">
 
 ## Dashboard Page
-![Dashboard Page](https://drive.google.com/uc?export=view&id=1uZ_K_o7nYrj7uiyxl6AeDKx_fMmxSMNS)
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1uZ_K_o7nYrj7uiyxl6AeDKx_fMmxSMNS" width="600" height="300">
 
 ## Tambah Pengunjung Page
-![Tambah Pengunjung Page](https://drive.google.com/uc?export=view&id=1eroJbOmcX3d_yN6BSAHfAN-Eta-mp-7y)
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1eroJbOmcX3d_yN6BSAHfAN-Eta-mp-7y" width="600" height="300">
+</p>
 
 ## Pengunjung Page
-![Pengunjung Page](https://drive.google.com/uc?export=view&id=1IDX514jmNLq1KeuBDCRrFVjHf7o9tI1d)
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1IDX514jmNLq1KeuBDCRrFVjHf7o9tI1d" width="600" height="300">
+</p>
 
 ## Pegawai Page
-![Pegawai Page](https://drive.google.com/uc?export=view&id=1wtDCyNxi1WzRlJfLC7vyPK9syBOHEABw)
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1wtDCyNxi1WzRlJfLC7vyPK9syBOHEABw" width="600" height="300">
+</p>
 
 ## Tambah Pegawai Page
-![Tambah Pegawai Page](https://drive.google.com/uc?export=view&id=1oT7VlKx2YJxrPIjk-yQ-W5XMzHLaSSWS)
-
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1oT7VlKx2YJxrPIjk-yQ-W5XMzHLaSSWS" width="600" height="300">
+</p>
 
 ## Bidang Page
-![Bidang Page](https://drive.google.com/uc?export=view&id=1Oz-9iNd2Ni547wOiDOr2aRcIaO9BCprb)
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1Oz-9iNd2Ni547wOiDOr2aRcIaO9BCprb" width="600" height="300">
+</p>
 
 ## Laporan Page
 Not yet available
