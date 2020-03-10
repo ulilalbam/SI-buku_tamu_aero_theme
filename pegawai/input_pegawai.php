@@ -6,7 +6,7 @@ include "../include/header.php";
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="../dashboard/index.php"><img src="../assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">ABC</span></a>
+        <a href="../dashboard/dashboard.php"><img src="../assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">ABC</span></a>
     </div>
     <div class="menu">
         <ul class="list">
@@ -19,7 +19,7 @@ include "../include/header.php";
                     </div>
                 </div>
             </li>
-            <li><a href="../dashboard/index.php" ><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+            <li><a href="../dashboard/dashboard.php" ><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
             <li><a href="../pengunjung/input_tamu.php"><i class="zmdi zmdi-account"></i><span>Tambah Pengunjung</span></a></li>
             <li><a href="../pengunjung/tamu.php"><i class="zmdi zmdi-account"></i><span>Pengunjung</span></a></li>
             <li><a href="pegawai.php"><i class="zmdi zmdi-account"></i><span>Pegawai</span></a></li>
@@ -43,7 +43,7 @@ include "../include/header.php";
             <div class="col-lg-7 col-md-6 col-sm-12">
                 <h2>Pegawai</h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../dashboard/index.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
+                    <li class="breadcrumb-item"><a href="../dashboard/dashboard.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
                     <li class="breadcrumb-item active">Tambah Data Pegawai</li>
                 </ul>
                 <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>

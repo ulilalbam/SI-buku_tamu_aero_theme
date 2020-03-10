@@ -36,7 +36,7 @@
                             <input id="remember_me" type="checkbox">
                             <label for="remember_me">Remember Me</label>
                         </div>
-                        <a href="./dashboard/index.php" class="btn btn-primary btn-block waves-effect waves-light">SIGN IN</a>                        
+                        <a href="./dashboard/dashboard.php" class="btn btn-primary btn-block waves-effect waves-light">SIGN IN</a>                        
                     </div>
                 </form>
                 <div class="copyright text-center">
