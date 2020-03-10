@@ -1,3 +1,30 @@
+<?php 
+include_once 'config/koneksi.php';
+session_start();
+// LOGIN 
+if(isset($_POST['btn_login'])){
+    
+    $email = $_POST['txt_user'];
+    $password = $_POST['txt_pass'];
+    
+    $select = $pdo->prepare("select * from admin where username='$email' and password='$password' ");
+    $select->execute();
+    
+    $row = $select->fetch(PDO::FETCH_ASSOC);
+    
+    if($row['username']==$email AND $row['password']==$password AND $row['hak_akses']==1){
+        
+        $_SESSION['id']=$row['id'];
+        $_SESSION['username']=$row['username'];
+        $_SESSION['hak_akses']=$row['hak_akses'];
+        
+        header('location: dashboard/dashboard.php');
+        exit();
+    }
+        
+}
+    
+?>
 <!DOCTYPE html>
 <html>
 
@@ -14,30 +41,30 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-12">
-                <form class="card auth_form">
+                <form action="" class="card auth_form" method="post">
                     <div class="header">
                         <img class="logo" src="assets/images/logo.svg" alt="">
                         <h5>Log in</h5>
                     </div>
+                    
                     <div class="body">
+                        
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" placeholder="Username" name="txt_user" required>
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name="txt_pass" required>
                             <div class="input-group-append">                                
                                 <span class="input-group-text"><a href="forgot-password.html" class="forgot" title="Forgot Password"><i class="zmdi zmdi-lock"></i></a></span>
                             </div>                            
                         </div>
-                        <div class="checkbox">
-                            <input id="remember_me" type="checkbox">
-                            <label for="remember_me">Remember Me</label>
-                        </div>
-                        <a href="./dashboard/dashboard.php" class="btn btn-primary btn-block waves-effect waves-light">SIGN IN</a>                        
+                        <button type="submit" name="btn_login" class="btn btn-primary btn-block waves-effect waves-light">SIGN IN</button>    
+                                      
                     </div>
+                    
                 </form>
                 <div class="copyright text-center">
                     &copy;

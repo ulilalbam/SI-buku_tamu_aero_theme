@@ -1,4 +1,6 @@
 <?php 
+include_once '../config/koneksi.php';
+session_start();
 include "../include/header.php";
  ?>
 
