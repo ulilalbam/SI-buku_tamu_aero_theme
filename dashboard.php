@@ -1,32 +1,20 @@
 <?php 
-include_once '../config/koneksi.php';
+include_once 'koneksi.php';
 session_start();
-
-include "../include/header.php";
+if($_SESSION['username']!="admin"){
+    echo "silahkan login kembali";
+    header('location: index.php');
+   exit();
+}
+include "header.php";
  ?>
 
-<!-- Left Sidebar -->
-<aside id="leftsidebar" class="sidebar">
-    <div class="navbar-brand">
-        <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="dashboard.php"><img src="../assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">ABC</span></a>
-    </div>
-    <div class="menu">
-        <ul class="list">
-            <li>
-                <div class="user-info">
-                    <a class="image" href="profile.html"><img src="../assets/images/profile_av.jpg" alt="User"></a>
-                    <div class="detail">
-                        <h4>User</h4>
-                        <small>Super Admin</small>                        
-                    </div>
-                </div>
-            </li>
+
             <li class="active open"><a href="dashboard.php" ><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-            <li><a href="../pengunjung/input_tamu.php"><i class="zmdi zmdi-account"></i><span>Tambah Pengunjung</span></a></li>
-            <li><a href="../pengunjung/tamu.php"><i class="zmdi zmdi-account"></i><span>Pengunjung</span></a></li>
-            <li><a href="../pegawai/pegawai.php"><i class="zmdi zmdi-account"></i><span>Pegawai</span></a></li>
-            <li><a href="../bidang/bidang.php"><i class="zmdi zmdi-account"></i><span>Bidang</span></a></li>
+            <li><a href="input_tamu.php"><i class="zmdi zmdi-account"></i><span>Tambah Pengunjung</span></a></li>
+            <li><a href="tamu.php"><i class="zmdi zmdi-account"></i><span>Pengunjung</span></a></li>
+            <li><a href="pegawai.php"><i class="zmdi zmdi-account"></i><span>Pegawai</span></a></li>
+            <li><a href="bidang.php"><i class="zmdi zmdi-account"></i><span>Bidang</span></a></li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Laporan</span></a>
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Ekspor Data</a></li>
@@ -241,7 +229,7 @@ include "../include/header.php";
 </section>
 
 <?php 
-include "../include/footer.php";
+include "footer.php";
  ?>
 
 

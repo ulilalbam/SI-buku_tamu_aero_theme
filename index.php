@@ -1,5 +1,6 @@
 <?php 
-include_once 'config/koneksi.php';
+include_once 'koneksi.php';
+session_start();
 // LOGIN 
 if(isset($_POST['btn_login'])){
     
@@ -13,10 +14,13 @@ if(isset($_POST['btn_login'])){
     
     if($row['username']==$user AND $row['password']==$password){
         
+        $_SESSION['id']=$row['id'];
         $_SESSION['username']=$row['username'];
+        $_SESSION['hak_akses']=$row['hak_akses'];
        
         
-        header('location: dashboard/dashboard.php');
+        header('location: dashboard.php');
+        exit();
     }
         
 }
@@ -38,14 +42,14 @@ if(isset($_POST['btn_login'])){
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-12">
-                <form action="" class="card auth_form" method="post">
+                <div class="card auth_form">
                     <div class="header">
                         <img class="logo" src="assets/images/logo.svg" alt="">
                         <h5>Log in</h5>
                     </div>
                     
                     <div class="body">
-                        
+                       <form action="" method="post"> 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Username" name="txt_user" required>
                             <div class="input-group-append">
@@ -59,10 +63,10 @@ if(isset($_POST['btn_login'])){
                             </div>                            
                         </div>
                         <button type="submit" name="btn_login" class="btn btn-primary btn-block waves-effect waves-light">SIGN IN</button>    
-                                      
+                        </form>           
                     </div>
                     
-                </form>
+                </div>
                 <div class="copyright text-center">
                     &copy;
                     <script>document.write(new Date().getFullYear())</script>,
