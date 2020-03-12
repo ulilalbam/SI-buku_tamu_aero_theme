@@ -2,12 +2,12 @@
 
 include_once '../config/koneksi.php';
 session_start();
-if($_SESSION['username']!="admin"){
-    
-    header('location: ../index.php');
-   exit();
+if($_SESSION['username']=="admin"){
+    echo "silahkan login kembali";
+    //header('location: ../index.php');
+   //exit();
 }
-include "../include/header.php";
+include_once "../include/header.php";
  ?>
 
  <!-- Left Sidebar -->

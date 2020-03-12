@@ -3,22 +3,20 @@ include_once 'config/koneksi.php';
 // LOGIN 
 if(isset($_POST['btn_login'])){
     
-    $email = $_POST['txt_user'];
+    $user = $_POST['txt_user'];
     $password = $_POST['txt_pass'];
     
-    $select = $pdo->prepare("select * from admin where username='$email' and password='$password' ");
+    $select = $pdo->prepare("select * from admin where username='$user' and password='$password' ");
     $select->execute();
     
     $row = $select->fetch(PDO::FETCH_ASSOC);
     
-    if($row['username']==$email AND $row['password']==$password AND $row['hak_akses']==1){
+    if($row['username']==$user AND $row['password']==$password){
         
-        $_SESSION['id']=$row['id'];
         $_SESSION['username']=$row['username'];
-        $_SESSION['hak_akses']=$row['hak_akses'];
+       
         
         header('location: dashboard/dashboard.php');
-        exit();
     }
         
 }
