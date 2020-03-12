@@ -1,4 +1,12 @@
 <?php 
+
+include_once '../config/koneksi.php';
+session_start();
+if($_SESSION['username']!="admin"){
+    
+    header('location: ../index.php');
+   exit();
+}
 include "../include/header.php";
  ?>
 

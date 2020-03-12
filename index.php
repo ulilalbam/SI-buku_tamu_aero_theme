@@ -1,6 +1,5 @@
 <?php 
 include_once 'config/koneksi.php';
-session_start();
 // LOGIN 
 if(isset($_POST['btn_login'])){
     

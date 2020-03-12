@@ -1,4 +1,12 @@
 <?php 
+include_once '../config/koneksi.php';
+session_start();
+if($_SESSION['username']!="admin"){
+    
+    header('location: ../index.php');
+   exit();
+}
+
 include "../include/header.php";
  ?>
 
@@ -19,7 +27,7 @@ include "../include/header.php";
                     </div>
                 </div>
             </li>
-            <li><a href="../dashboard/index.php" ><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+            <li><a href="../dashboard/dashboard.php" ><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
             <li><a href="input_tamu.php"><i class="zmdi zmdi-account"></i><span>Tambah Pengunjung</span></a></li>
             <li class="active open"><a href="tamu.php"><i class="zmdi zmdi-account"></i><span>Pengunjung</span></a></li>
             <li><a href="../pegawai/pegawai.php"><i class="zmdi zmdi-account"></i><span>Pegawai</span></a></li>
