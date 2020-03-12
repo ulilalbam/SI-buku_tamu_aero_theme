@@ -23,6 +23,7 @@ if(isset($_POST['btn_add'])){
             $insert->bindParam(':pkode',$bidang);
             
             $insert->execute();
+            header( "refresh:0;url=pegawai.php" );
 }
  ?>
 
