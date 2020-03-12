@@ -7,6 +7,7 @@ if($_SESSION['username']!="admin"){
    exit();
 }
 include "header.php";
+
  ?>
 
 
@@ -51,32 +52,32 @@ include "header.php";
                     
                     <div class="card">
                         <div class="body">
-                            <h2 class="card-inside-title">Tambah Pengunjung</h2>
+                            <h2 class="card-inside-title">Tambah Pengunjung ( Fungsi backend belum dibuat )</h2>
                             <div class="body">
-                            <form class="form-horizontal">
+                            <form role="form" class="form-horizontal" action="" method="post">
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
-                                        <label for="tambah_pengunjung">Nama Pengunjung</label>
+                                        <label>Nama Pengunjung</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" id="tambah_namapgw" class="form-control" placeholder="Masukkan Nama">
+                                            <input type="text" id="tambah_namatamu" class="form-control" placeholder="Masukkan Nama">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
-                                        <label for="tambah_keperluan">Keperluan</label>
+                                        <label>Keperluan</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" id="tambah_nip" class="form-control" placeholder="Masukkan NIP">
+                                            <input type="text" id="tambah_perlu" class="form-control" placeholder="Masukkan Keperluan">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
-                                        <label for="pilih_pgw">Pegawai yang Ditemui</label>
+                                        <label>Pegawai yang Ditemui</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8">
                                         <div class="form-group">
