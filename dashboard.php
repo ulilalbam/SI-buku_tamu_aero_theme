@@ -32,7 +32,7 @@ include "header.php";
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Dashboard</h2>
+                <h2>Dashboard ( masih template perlu diganti )</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
