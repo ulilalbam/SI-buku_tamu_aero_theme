@@ -69,7 +69,6 @@ include "header.php";
                             <table class="table table-hover c_table">
                                 <thead>
                                     <tr>
-                                        <th style="width:60px;">#</th>
                                         <th>Nomor</th>
                                         <th>Nama Tamu</th>
                                         <th>Keperluan</th>
@@ -80,56 +79,23 @@ include "header.php";
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Hossein</td>
-                                        <td>IPONE-7</td>
-                                        <td>Porterfield 508 Virginia Street Chicago, IL 60653</td>
-                                        <td>ABC</td>
-                                        <td>3</td>
-                                        <td>Tanggal</td>
-                                        <td><button type="button" class="btn bg-red waves-effect waves-light">Hapus</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Camara</td>
-                                        <td>NOKIA-8</td>
-                                        <td>2595 Pearlman Avenue Sudbury, MA 01776 </td>
-                                        <td>ABC</td>
-                                        <td>3</td>
-                                        <td>Tanggal</td>
-                                        <td><button type="button" class="btn bg-red waves-effect waves-light">Hapus</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Maryam</td>
-                                        <td>NOKIA-456</td>
-                                        <td>Porterfield 508 Virginia Street Chicago, IL 60653</td>
-                                        <td>ABC</td>
-                                        <td>3</td>
-                                        <td>Tanggal</td>
-                                        <td><button type="button" class="btn bg-red waves-effect waves-light">Hapus</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Micheal</td>
-                                        <td>SAMSANG PRO</td>
-                                        <td>508 Virginia Street Chicago, IL 60653</td>
-                                        <td>ABC</td>
-                                        <td>3</td>
-                                        <td>Tanggal</td>
-                                        <td><button type="button" class="btn bg-red waves-effect waves-light">Hapus</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Frank</td>
-                                        <td>NOKIA-456</td>
-                                        <td>1516 Holt Street West Palm Beach, FL 33401</td>
-                                        <td>ABC</td>
-                                        <td>3</td>
-                                        <td>Tanggal</td>
-                                        <td><button type="button" class="btn bg-red waves-effect waves-light">Hapus</button></td>
-                                    </tr>
+                                <?php 
+                                    $i=1;
+                                    $select=$pdo->prepare("select * from data_tamu order by id asc");
+                                    $select->execute();
+                                    while($row=$select->fetch(PDO::FETCH_OBJ)){
+                                        echo '
+                                        <tr>
+                                        <td>'.$row=$i++.'</td>
+                                        <td>'.$row->nama_tamu.'</td>
+                                        <td>'.$row->ket.'</td>
+                                        <td>'.$row->namapgw2.'</td>
+                                        <td> Bidang belum join table </td>
+                                        <td>'.$row->masuk.'</td>
+                                        <td><button type="submit" value="'.$row->id.'" class="btn bg-red waves-effect waves-light">Hapus</button></td>
+                                    </tr>';
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

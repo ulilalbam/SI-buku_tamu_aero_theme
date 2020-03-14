@@ -7,7 +7,24 @@ if($_SESSION['username']!="admin"){
    exit();
 }
 include "header.php";
-
+$tanggal = date("d-m-Y");
+error_reporting();
+if(isset($_POST['btn_add'])){
+    
+    $tmasuk = $_POST['masuk'];
+    $tnama = $_POST['tambah_tamu'];
+    $tket = $_POST['tambah_ket'];
+    $tpgw = $_POST['pilih_pgw'];
+    
+    $insert = $pdo->prepare("insert into data_tamu(namapgw2,nama_tamu,masuk,ket) values(:dpgw,:dtamu,:dmasuk,:dket)");
+            $insert->bindParam(':dpgw',$tpgw);
+            $insert->bindParam(':dtamu',$tnama);
+            $insert->bindParam(':dmasuk',$tmasuk);
+            $insert->bindParam(':dket',$tket);
+            
+            $insert->execute();
+            header( "refresh:0;url=tamu.php" );
+}
  ?>
 
 
@@ -35,7 +52,7 @@ include "header.php";
             <div class="col-lg-7 col-md-6 col-sm-12">
                 <h2>Pengunjung</h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
+                    <li class="breadcrumb-item"><a href="dashboard.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
                     <li class="breadcrumb-item active">Tambah Pengunjung</li>
                 </ul>
                 <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
@@ -55,13 +72,14 @@ include "header.php";
                             <h2 class="card-inside-title">Tambah Pengunjung ( Fungsi backend belum dibuat )</h2>
                             <div class="body">
                             <form role="form" class="form-horizontal" action="" method="post">
+                            <input type="hidden" name="masuk" value="<?php echo $tanggal?>">
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
                                         <label>Nama Pengunjung</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" id="tambah_namatamu" class="form-control" placeholder="Masukkan Nama">
+                                            <input type="text" name="tambah_tamu" class="form-control" placeholder="Masukkan Nama">
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +89,7 @@ include "header.php";
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" id="tambah_perlu" class="form-control" placeholder="Masukkan Keperluan">
+                                            <input type="text" name="tambah_ket" class="form-control" placeholder="Masukkan Keperluan">
                                         </div>
                                     </div>
                                 </div>
@@ -81,11 +99,19 @@ include "header.php";
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8">
                                         <div class="form-group">
-                                            <select class="form-control show-tick ms select2" data-placeholder="Select">
+                                            <select class="form-control show-tick ms select2" name="pilih_pgw" required>
                                             <option value="" disabled  selected>Pilih Pegawai</option>
-                                            <option>Mustard</option>
-                                            <option>Ketchup</option>
-                                            <option>Relish</option>
+                                            <?php
+                                $select=$pdo->prepare("select * from data_anggota order by id asc");
+                                $select->execute();
+                                while($row=$select->fetch(PDO::FETCH_ASSOC)){
+                                    extract($row);
+                                    //echo "<option value='$row[0].$row[1]'>$row[0]. $row[1]</option>";
+                                    ?>
+                                    <option><?php echo $row['namapgw'];?></option>
+                                <?php
+                                }
+                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -94,7 +120,7 @@ include "header.php";
                                     <div class="col-lg-2 col-md-2 col-sm-4">
                                         </div>
                                     <div class="m-l-20 inlineblock">
-                                            <button type="button" class="btn btn-raised btn-primary btn-round waves-effect">Tambahkan</button>
+                                            <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect" name="btn_add">Tambahkan</button>
                                         </div>
                                         <div class="m-l-20 inlineblock">
                                             <button type="button" class="btn btn-raised btn-danger btn-round waves-effect">Reset</button>
