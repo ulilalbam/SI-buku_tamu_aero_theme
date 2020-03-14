@@ -14,9 +14,9 @@ if(isset($_POST['btn_add'])){
     $nama = $_POST['tambah_namapgw'];
     $nip = $_POST['tambah_nip'];
     $jabatan = $_POST['tambah_jabatan'];
-    $bidang = $_POST['tambah_bidang'];
+    $bidang = $_POST['pilih_bidang'];
     
-    $insert = $pdo->prepare("insert into data_anggota(namapgw,nip,jabatan,kode_bidang) values(:pname,:pnip,:pjabatan,:pkode)");
+    $insert = $pdo->prepare("insert into data_pegawai(nama_pgw,nip,jabatan,kode_bidang) values(:pname,:pnip,:pjabatan,:pkode)");
             $insert->bindParam(':pname',$nama);
             $insert->bindParam(':pnip',$nip);
             $insert->bindParam(':pjabatan',$jabatan);
@@ -112,13 +112,19 @@ if(isset($_POST['btn_add'])){
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8">
                                         <div class="form-group">
-                                            <select class="form-control show-tick ms select2" name="tambah_bidang" required>
+                                            <select class="form-control show-tick ms select2" name="pilih_bidang" required>
                                             <option value="" disabled  selected>Pilih Bidang</option>
-                                            <option value="101">Pelayanan Pendaftaran Penduduk</option>
-                                            <option value="102">Pelayanan Pencatatan Sipil</option>
-                                            <option value="103">Pengelolaan Informasi Administrasi Kependudukan</option>
-                                            <option value="104">Pemanfaatan Data dan Inovasi Pelayanan</option>
-                                            <option value="105">Sekretariat</option>
+                                            <?php
+                                $select=$pdo->prepare("select * from data_bidang order by id desc");
+                                $select->execute();
+                                while($row=$select->fetch(PDO::FETCH_ASSOC)){
+                                    extract($row);
+                                    //echo "<option value='$row[0].$row[1]'>$row[0]. $row[1]</option>";
+                                    ?>
+                                    <option value="<?php echo $row['id'];?>"><?php echo $row['nama'];?></option>
+                                <?php
+                                }
+                                ?>
                                             </select>
                                         </div>
                                     </div>

@@ -16,7 +16,7 @@ if(isset($_POST['btn_add'])){
     $tket = $_POST['tambah_ket'];
     $tpgw = $_POST['pilih_pgw'];
     
-    $insert = $pdo->prepare("insert into data_tamu(namapgw2,nama_tamu,masuk,ket) values(:dpgw,:dtamu,:dmasuk,:dket)");
+    $insert = $pdo->prepare("insert into data_tamu(kode_pgw,nama_tamu,masuk,ket) values(:dpgw,:dtamu,:dmasuk,:dket)");
             $insert->bindParam(':dpgw',$tpgw);
             $insert->bindParam(':dtamu',$tnama);
             $insert->bindParam(':dmasuk',$tmasuk);
@@ -102,13 +102,13 @@ if(isset($_POST['btn_add'])){
                                             <select class="form-control show-tick ms select2" name="pilih_pgw" required>
                                             <option value="" disabled  selected>Pilih Pegawai</option>
                                             <?php
-                                $select=$pdo->prepare("select * from data_anggota order by id asc");
+                                $select=$pdo->prepare("select * from data_pegawai order by id_pgw asc");
                                 $select->execute();
                                 while($row=$select->fetch(PDO::FETCH_ASSOC)){
                                     extract($row);
                                     //echo "<option value='$row[0].$row[1]'>$row[0]. $row[1]</option>";
                                     ?>
-                                    <option value="<?php echo $row['id'];?>"><?php echo $row['namapgw'];?></option>
+                                    <option value="<?php echo $row['id_pgw'];?>"><?php echo $row['nama_pgw'];?></option>
                                 <?php
                                 }
                                 ?>

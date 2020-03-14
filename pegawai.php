@@ -80,18 +80,19 @@ include_once "header.php";
                                 <tbody>
                                     <?php 
                                     $i=1;
-                                    $select=$pdo->prepare("select * from data_anggota order by id asc");
+                                    //$select=$pdo->prepare("select * from data_pegawai order by id_pgw asc");
+                                    $select=$pdo->prepare("select data_pegawai.id_pgw, data_pegawai.nama_pgw, data_pegawai.nip, data_bidang.nama, data_pegawai.jabatan from data_pegawai inner join data_bidang on data_pegawai.kode_bidang=data_bidang.id");
                                     $select->execute();
                                     while($row=$select->fetch(PDO::FETCH_OBJ)){
                                         echo '
                                         <tr>
-                                        <td>'.$row->id.'</td>
+                                        <td>'.$row->id_pgw.'</td>
                                         <td>'.$row=$i++.'</td>
-                                        <td>'.$row->namapgw.'</td>
+                                        <td>'.$row->nama_pgw.'</td>
                                         <td>'.$row->nip.'</td>
-                                        <td>'.$row->kode_bidang.' ( harusnya nama bidang )</td>
+                                        <td>'.$row->nama.'</td>
                                         <td>'.$row->jabatan.'</td>
-                                        <td><button type="submit" value="'.$row->id.'" class="btn bg-red waves-effect waves-light">Hapus</button></td>
+                                        <td><button type="submit" value="'.$row->id_pgw.'" class="btn bg-red waves-effect waves-light">Hapus</button></td>
                                     </tr>';
                                     }
                                     ?>

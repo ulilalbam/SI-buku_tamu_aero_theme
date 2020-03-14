@@ -81,7 +81,8 @@ include "header.php";
                                 <tbody>
                                 <?php 
                                     $i=1;
-                                    $select=$pdo->prepare("select * from data_tamu order by id asc");
+                                    //$select=$pdo->prepare("select * from data_tamu order by id_tamu asc");
+                                    $select=$pdo->prepare("select data_tamu.id_tamu, data_tamu.nama_tamu, data_tamu.ket, data_pegawai.nama_pgw, data_bidang.nama, data_tamu.masuk from data_tamu join data_pegawai on data_tamu.kode_pgw=data_pegawai.id_pgw join data_bidang on data_pegawai.kode_bidang=data_bidang.id");
                                     $select->execute();
                                     while($row=$select->fetch(PDO::FETCH_OBJ)){
                                         echo '
@@ -89,10 +90,10 @@ include "header.php";
                                         <td>'.$row=$i++.'</td>
                                         <td>'.$row->nama_tamu.'</td>
                                         <td>'.$row->ket.'</td>
-                                        <td>'.$row->namapgw2.'</td>
-                                        <td> Bidang belum join table </td>
+                                        <td>'.$row->nama_pgw.'</td>
+                                        <td>'.$row->nama.'</td>
                                         <td>'.$row->masuk.'</td>
-                                        <td><button type="submit" value="'.$row->id.'" class="btn bg-red waves-effect waves-light">Hapus</button></td>
+                                        <td><button type="submit" value="'.$row->id_tamu.'" class="btn bg-red waves-effect waves-light">Hapus</button></td>
                                     </tr>';
                                     }
                                     ?>
