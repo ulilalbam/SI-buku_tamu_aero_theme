@@ -177,46 +177,23 @@ include "header.php";
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Hossein</td>
-                                        <td>IPONE-7</td>
-                                        <td>Porterfield 508 Virginia Street Chicago, IL 60653</td>
-                                        <td>3</td>
-                                        <td><span class="badge badge-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Camara</td>
-                                        <td>NOKIA-8</td>
-                                        <td>2595 Pearlman Avenue Sudbury, MA 01776 </td>
-                                        <td>3</td>
-                                        <td><span class="badge badge-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Maryam</td>
-                                        <td>NOKIA-456</td>
-                                        <td>Porterfield 508 Virginia Street Chicago, IL 60653</td>
-                                        <td>4</td>
-                                        <td><span class="badge badge-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Micheal</td>
-                                        <td>SAMSANG PRO</td>
-                                        <td>508 Virginia Street Chicago, IL 60653</td>
-                                        <td>1</td>
-                                        <td><span class="badge badge-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="http://via.placeholder.com/60x40" alt="Product img"></td>
-                                        <td>Frank</td>
-                                        <td>NOKIA-456</td>
-                                        <td>1516 Holt Street West Palm Beach, FL 33401</td>
-                                        <td>13</td>
-                                        <td><span class="badge badge-warning">PENDING</span></td>
-                                    </tr>
+                                <?php 
+                                    $i=1;
+                                    //$select=$pdo->prepare("select * from data_tamu order by id_tamu asc");
+                                    $select=$pdo->prepare("select data_tamu.id_tamu, data_tamu.nama_tamu, data_tamu.ket, data_pegawai.nama_pgw, data_bidang.nama, data_tamu.masuk from data_tamu join data_pegawai on data_tamu.kode_pgw=data_pegawai.id_pgw join data_bidang on data_pegawai.kode_bidang=data_bidang.id");
+                                    $select->execute();
+                                    while($row=$select->fetch(PDO::FETCH_OBJ)){
+                                        echo '
+                                        <tr>
+                                        <td>'.$row=$i++.'</td>
+                                        <td>'.$row->nama_tamu.'</td>
+                                        <td>'.$row->ket.'</td>
+                                        <td>'.$row->nama_pgw.'</td>
+                                        <td>'.$row->nama.'</td>
+                                        <td>'.$row->masuk.'</td>
+                                    </tr>';
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

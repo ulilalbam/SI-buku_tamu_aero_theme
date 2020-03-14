@@ -8,6 +8,12 @@ if($_SESSION['username']!="admin"){
 }
 
 include "header.php";
+/*------ Delete Tamu ------*/
+if (isset($_POST['btn_del'])){
+    
+    $delete=$pdo->prepare("delete from data_tamu where id_tamu=".$_POST['btn_del']);
+    $delete->execute();
+}
  ?>
 
 
@@ -47,6 +53,7 @@ include "header.php";
     </div>
    
         <div class="container-fluid">
+        <form role="form" action="" method="post">
             <div class="row clearfix">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
@@ -93,7 +100,7 @@ include "header.php";
                                         <td>'.$row->nama_pgw.'</td>
                                         <td>'.$row->nama.'</td>
                                         <td>'.$row->masuk.'</td>
-                                        <td><button type="submit" value="'.$row->id_tamu.'" class="btn bg-red waves-effect waves-light">Hapus</button></td>
+                                        <td><button type="submit" value="'.$row->id_tamu.'" class="btn bg-red waves-effect waves-light" name="btn_del">Hapus</button></td>
                                     </tr>';
                                     }
                                     ?>
@@ -103,7 +110,7 @@ include "header.php";
                     </div>
                 </div>
             </div>
-            
+        </form>
         </div>
     </div>
 </section>

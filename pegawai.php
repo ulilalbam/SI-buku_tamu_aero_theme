@@ -8,6 +8,12 @@ if($_SESSION['username']!="admin"){
    exit();
 }
 include_once "header.php";
+/*------ Delete Pegawai ------*/
+if (isset($_POST['btn_del'])){
+    
+    $delete=$pdo->prepare("delete from data_pegawai where id_pgw=".$_POST['btn_del']);
+    $delete->execute();
+}
  ?>
 
 
@@ -47,6 +53,7 @@ include_once "header.php";
     </div>
    
         <div class="container-fluid">
+        <form role="form" action="" method="post">
             <div class="row clearfix">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
@@ -92,7 +99,7 @@ include_once "header.php";
                                         <td>'.$row->nip.'</td>
                                         <td>'.$row->nama.'</td>
                                         <td>'.$row->jabatan.'</td>
-                                        <td><button type="submit" value="'.$row->id_pgw.'" class="btn bg-red waves-effect waves-light">Hapus</button></td>
+                                        <td><button type="submit" value="'.$row->id_pgw.'" class="btn bg-red waves-effect waves-light" name="btn_del">Hapus</button></td>
                                     </tr>';
                                     }
                                     ?>
@@ -103,7 +110,7 @@ include_once "header.php";
                     </div>
                 </div>
             </div>
-            
+        </form>
         </div>
     </div>
 </section>
