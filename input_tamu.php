@@ -108,7 +108,7 @@ if(isset($_POST['btn_add'])){
                                     extract($row);
                                     //echo "<option value='$row[0].$row[1]'>$row[0]. $row[1]</option>";
                                     ?>
-                                    <option><?php echo $row['namapgw'];?></option>
+                                    <option value="<?php echo $row['id'];?>"><?php echo $row['namapgw'];?></option>
                                 <?php
                                 }
                                 ?>
