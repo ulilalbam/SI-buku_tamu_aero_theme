@@ -7,6 +7,13 @@ if($_SESSION['username']!="admin"){
    exit();
 }
 include "header.php";
+error_reporting();
+
+$dataPoints = array(
+	array("label"=> "Food + Drinks", "y"=> 590),
+	array("label"=> "Activities and Entertainments", "y"=> 261),
+	array("label"=> "Health and Fitness", "y"=> 158)
+);
  ?>
 
 
@@ -124,7 +131,7 @@ include "header.php";
             <div class="container-fluid">
                 <div class="card">
                     <div class="header">
-                        <h2><strong>Chart</strong> Permasalahan</h2>
+                        <h2><strong>Chart</strong> Permasalahan ( belum connect database )</h2>
                         <ul class="header-dropdown">
                             <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                 <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -139,7 +146,7 @@ include "header.php";
                         </ul>
                     </div>
                     <div class="body text-center">
-                        <div id="chart-pie" class="c3_chart d_distribution"></div>
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                         <button class="btn btn-primary mt-4 mb-4">View More</button>                            
                     </div>
                 </div>
@@ -204,9 +211,32 @@ include "header.php";
         </div>
     </div>
 </section>
-
+<script>
+window.onload = function () {
+ 
+ var chart = new CanvasJS.Chart("chartContainer", {
+     animationEnabled: true,
+     exportEnabled: true,
+     title:{
+         text: "Permasalahan Tamu Terbanyak"
+     },
+     subtitles: [{
+         text: "Berdasar bidang"
+     }],
+     data: [{
+         type: "pie",
+         showInLegend: "true",
+         legendText: "{label}",
+         indexLabelFontSize: 16,
+         indexLabel: "{label} - #percent%",
+         yValueFormatString: "฿#,##0",
+         dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+     }]
+ });
+ chart.render();
+  
+ }
+</script>
 <?php 
 include "footer.php";
  ?>
-
-

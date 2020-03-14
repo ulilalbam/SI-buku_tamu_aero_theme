@@ -9,18 +9,13 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
 <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/>
-<link rel="stylesheet" href="assets/plugins/charts-c3/plugin.css"/>
-
 <link rel="stylesheet" href="assets/plugins/morrisjs/morris.min.css" />
-
 <!-- Select2 -->
 <link rel="stylesheet" href="assets/plugins/select2/select2.css" />
 <!-- Multi Select Css -->
 <link rel="stylesheet" href="assets/plugins/multi-select/css/multi-select.css">
 <!-- Bootstrap Select Css -->
 <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
-
-
 <!-- Custom Css -->
 <link rel="stylesheet" href="assets/css/style.min.css">
 </head>

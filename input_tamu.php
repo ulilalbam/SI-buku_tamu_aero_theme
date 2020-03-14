@@ -69,7 +69,7 @@ if(isset($_POST['btn_add'])){
                     
                     <div class="card">
                         <div class="body">
-                            <h2 class="card-inside-title">Tambah Pengunjung ( Fungsi backend belum dibuat )</h2>
+                            <h2 class="card-inside-title">Tambah Pengunjung</h2>
                             <div class="body">
                             <form role="form" class="form-horizontal" action="" method="post">
                             <input type="hidden" name="masuk" value="<?php echo $tanggal?>">
