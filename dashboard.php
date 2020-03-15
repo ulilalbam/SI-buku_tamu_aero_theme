@@ -164,7 +164,7 @@ $link = null;
                     </div>
                     <div class="body text-center">
                     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-                        <button class="btn btn-primary mt-4 mb-4">View More</button>                            
+                        <!--<button class="btn btn-primary mt-4 mb-4">View More</button> -->                           
                     </div>
                 </div>
             </div>
