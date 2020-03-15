@@ -8,12 +8,29 @@ if($_SESSION['username']!="admin"){
 }
 include "header.php";
 error_reporting();
+$dataPoints=array();
+//$select=$pdo->prepare("select nama, count(*) as total from data_bidang order by id");
+$select=$pdo->prepare(" select *, count(data_tamu.id_tamu) as total from data_bidang left join data_pegawai on data_bidang.id=data_pegawai.kode_bidang left join data_tamu on data_pegawai.id_pgw=data_tamu.kode_pgw group by data_bidang.id");
+//$select=$pdo->prepare("select *, count(data_pegawai.id_pgw) as total from data_bidang left join data_pegawai on data_bidang.id=data_pegawai.kode_bidang group by data_bidang.id");
+$select->execute();
+while ($row=$select->fetch(PDO::FETCH_OBJ))
+{
+    array_push($dataPoints, array("label"=> $row->nama, "y"=> $row->total));
+}
+$link = null;
+    //$dataPoints = array(
+        //array("label"=> $row['nama'], "y"=> 590),
+        
+    //);
+    //array_push($dataPoints, array("label" => $row['nama'], "y" => 21));
 
-$dataPoints = array(
-	array("label"=> "Food + Drinks", "y"=> 590),
-	array("label"=> "Activities and Entertainments", "y"=> 261),
-	array("label"=> "Health and Fitness", "y"=> 158)
-);
+    //$point = array("label" => $row['nama'], "y" => $row['']);
+
+//$dataPoints = array(
+	//array("label"=> "", "y"=> 590),
+	//array("label"=> "Activities and Entertainments", "y"=> 261),
+	//array("label"=> "Health and Fitness", "y"=> 158)
+//);
  ?>
 
 
@@ -39,7 +56,7 @@ $dataPoints = array(
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Dashboard ( masih template perlu diganti )</h2>
+                <h2>Dashboard ( total-total belum konek database )</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
@@ -131,7 +148,7 @@ $dataPoints = array(
             <div class="container-fluid">
                 <div class="card">
                     <div class="header">
-                        <h2><strong>Chart</strong> Permasalahan ( belum connect database )</h2>
+                        <h2><strong>Chart</strong> Permasalahan</h2>
                         <ul class="header-dropdown">
                             <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                 <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -177,10 +194,10 @@ $dataPoints = array(
                                     <tr>
                                         <th style="width:60px;">#</th>
                                         <th>Nama</th>
-                                        <th>Alamat</th>
+                                        <th>Keterangan</th>
                                         <th>Pegawai</th>
                                         <th>Bidang</th>                                    
-                                        <th>Permasalahan</th>
+                                        <th>Tanggal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -218,18 +235,19 @@ window.onload = function () {
      animationEnabled: true,
      exportEnabled: true,
      title:{
-         text: "Permasalahan Tamu Terbanyak"
+         text: "Permasalahan Bidang Terbanyak"
      },
-     subtitles: [{
-         text: "Berdasar bidang"
-     }],
+     legend :{
+        verticalAlign: "center",
+        horizontalAlign: "left",
+    },
      data: [{
-         type: "pie",
+         type: "doughnut",
          showInLegend: "true",
          legendText: "{label}",
          indexLabelFontSize: 16,
-         indexLabel: "{label} - #percent%",
-         yValueFormatString: "฿#,##0",
+         indexLabel: "#percent%",
+         yValueFormatString: "",
          dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
      }]
  });

@@ -7,6 +7,7 @@ if($_SESSION['username']!="admin"){
    exit();
 }
 include "header.php";
+error_reporting();
  ?>
 
 
@@ -67,8 +68,11 @@ include "header.php";
                                 <tbody>
                                 <?php 
                                     $i=1;
-                                    $select=$pdo->prepare("select * from data_bidang order by id asc");
+                                    $select=$pdo->prepare("select *, count(data_pegawai.id_pgw) as total from data_bidang left join data_pegawai on data_bidang.id=data_pegawai.kode_bidang group by data_bidang.id");
                                     $select->execute();
+                                    //$count=$pdo->prepare("select count(data_pegawai.id_pgw) as total from data_bidang join data_pegawai on data_bidang.id=data_pegawai.kode_bidang group by data_bidang.id");
+                                    //$count->execute();
+                                    //$total=$count->fetch(PDO::FETCH_OBJ);
                                     while($row=$select->fetch(PDO::FETCH_OBJ)){
                                         echo '
                                         <tr>
@@ -76,7 +80,7 @@ include "header.php";
                                         <td>'.$row->kode_bdg.'</td>
                                         <td>'.$row->nama.'</td>
                                         <td>'.$row->lokasi.'</td>
-                                        <td>(belum join database)</td>
+                                        <td>'.$row->total.'</td>
                                     </tr>';
                                     }
                                     ?>
