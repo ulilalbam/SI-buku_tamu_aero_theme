@@ -1,5 +1,6 @@
 <?php 
 include_once 'koneksi.php';
+include_once 'tanggal.php';
 session_start();
 if($_SESSION['username']!="admin"){
     echo "silahkan login kembali";
@@ -56,7 +57,7 @@ $link = null;
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Dashboard ( total-total belum konek database )</h2>
+                <h2>Dashboard ( total berdasarkan minggu dan bulan masih error )</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
@@ -70,25 +71,8 @@ $link = null;
     </div>
    <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
-                    <div class="card">
-                        <div class="body">                            
-                            <input type="text" class="knob" value="42" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#00adef" readonly>
-                            <p>Total<strong> Pengunjung Minggu Ini</strong></p>
-                            <div class="d-flex bd-highlight text-center mt-4">
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Hari ini</small>
-                                    <h5 class="mb-0">254</h5>
-                                </div>
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Kemarin</small>
-                                    <h5 class="mb-0">254</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
+                
+                <div class="col-md-6 col-sm-6 col-6 text-center">
                     <div class="card">
                         <div class="body">                            
                             <input type="text" class="knob" value="81" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#ee2558" readonly>
@@ -96,28 +80,21 @@ $link = null;
                             <div class="d-flex bd-highlight text-center mt-4">
                                 <div class="flex-fill bd-highlight">
                                     <small class="text-muted">Hari ini</small>
-                                    <h5 class="mb-0">34GB</h5>
+                                    <h5 class="mb-0"><?php echo $hasil1;?></h5>
                                 </div>
                                 <div class="flex-fill bd-highlight">
                                     <small class="text-muted">Kemarin</small>
-                                    <h5 class="mb-0">531GB</h5>
+                                    <h5 class="mb-0"><?php echo $hasil2;?></h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
+                
+                <div class="col-md-6 col-sm-6 col-6 text-center">
                     <div class="card">
                         <div class="body">                            
-                            <input type="text" class="knob" value="62" data-linecap="round" data-width="155" data-height="155" data-thickness="0.08" data-fgColor="#8f78db" readonly>
-                            <p>Total<strong> Pengunjung Bulan Ini</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
-                    <div class="card">
-                        <div class="body">                            
-                            <input type="text" class="knob" value="38" data-linecap="round" data-width="155" data-height="155" data-thickness="0.08" data-fgColor="#f67a82" readonly>
+                            <input type="text" class="knob" value="81" data-linecap="round" data-width="155" data-height="155" data-thickness="0.08" data-fgColor="#f67a82" readonly>
                             <p>Total<strong> Permasalahan Bulan Ini</strong></p>
                         </div>
                     </div>
