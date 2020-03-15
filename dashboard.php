@@ -74,14 +74,14 @@ $link = null;
                     <div class="card">
                         <div class="body">                            
                             <input type="text" class="knob" value="42" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#00adef" readonly>
-                            <p>Total<strong> Pengunjung</strong></p>
+                            <p>Total<strong> Pengunjung Minggu Ini</strong></p>
                             <div class="d-flex bd-highlight text-center mt-4">
                                 <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Direct</small>
+                                    <small class="text-muted">Hari ini</small>
                                     <h5 class="mb-0">254</h5>
                                 </div>
                                 <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Discovery</small>
+                                    <small class="text-muted">Kemarin</small>
                                     <h5 class="mb-0">254</h5>
                                 </div>
                             </div>
@@ -92,14 +92,14 @@ $link = null;
                     <div class="card">
                         <div class="body">                            
                             <input type="text" class="knob" value="81" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#ee2558" readonly>
-                            <p>Total<strong> Permasalahan</strong></p>
+                            <p>Total<strong> Permasalahan Minggu Ini</strong></p>
                             <div class="d-flex bd-highlight text-center mt-4">
                                 <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Internal</small>
+                                    <small class="text-muted">Hari ini</small>
                                     <h5 class="mb-0">34GB</h5>
                                 </div>
                                 <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">External</small>
+                                    <small class="text-muted">Kemarin</small>
                                     <h5 class="mb-0">531GB</h5>
                                 </div>
                             </div>
@@ -109,36 +109,16 @@ $link = null;
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
                     <div class="card">
                         <div class="body">                            
-                            <input type="text" class="knob" value="62" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#8f78db" readonly>
-                            <p>Total<strong> Kunjungan Hari Ini</strong></p>
-                            <div class="d-flex bd-highlight text-center mt-4">
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Internal</small>
-                                    <h5 class="mb-0">25<small>(-23%)</small></h5>
-                                </div>
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">External</small>
-                                    <h5 class="mb-0">12<small>(+150%)</small></h5>
-                                </div>
-                            </div>
+                            <input type="text" class="knob" value="62" data-linecap="round" data-width="155" data-height="155" data-thickness="0.08" data-fgColor="#8f78db" readonly>
+                            <p>Total<strong> Pengunjung Bulan Ini</strong></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
                     <div class="card">
                         <div class="body">                            
-                            <input type="text" class="knob" value="38" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#f67a82" readonly>
-                            <p>Total<strong> Kunjungan Bulan Ini</strong></p>
-                            <div class="d-flex bd-highlight text-center mt-4">
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Inbound</small>
-                                    <h5 class="mb-0">15K</h5>
-                                </div>
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Outbound</small>
-                                    <h5 class="mb-0">2K</h5>
-                                </div>
-                            </div>
+                            <input type="text" class="knob" value="38" data-linecap="round" data-width="155" data-height="155" data-thickness="0.08" data-fgColor="#f67a82" readonly>
+                            <p>Total<strong> Permasalahan Bulan Ini</strong></p>
                         </div>
                     </div>
                 </div>
@@ -148,7 +128,7 @@ $link = null;
             <div class="container-fluid">
                 <div class="card">
                     <div class="header">
-                        <h2><strong>Chart</strong> Permasalahan</h2>
+                        <h2><strong>Chart</strong> Permasalahan ( kasaran )</h2>
                         <ul class="header-dropdown">
                             <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                 <ul class="dropdown-menu dropdown-menu-right slideUp">
