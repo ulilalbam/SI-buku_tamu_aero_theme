@@ -9,6 +9,7 @@ if($_SESSION['username']!="admin"){
 }
 include "header.php";
 error_reporting();
+//error_reporting(E_ALL & ~E_NOTICE);
 $dataPoints=array();
 //$select=$pdo->prepare("select nama, count(*) as total from data_bidang order by id");
 $select=$pdo->prepare(" select *, count(data_tamu.id_tamu) as total from data_bidang left join data_pegawai on data_bidang.id=data_pegawai.kode_bidang left join data_tamu on data_pegawai.id_pgw=data_tamu.kode_pgw group by data_bidang.id");
