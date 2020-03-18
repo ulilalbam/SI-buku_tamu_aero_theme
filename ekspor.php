@@ -6,6 +6,10 @@ if($_SESSION['username']!="admin"){
     header('location: index.php');
    exit();
 }
+if(isset($_POST['btn_ekspor'])){
+
+        
+}
 include "header.php";
 error_reporting();
  ?>
@@ -54,7 +58,7 @@ error_reporting();
                             <h2><strong>Ekspor</strong> Data</h2>
                         </div>
                         <div class="body">
-                            <p>Tekan tombol ekspor untuk membackup file dalam bentuk file excel atau csv.</p>
+                            <p>Tekan tombol ekspor untuk membackup file dalam bentuk file xls.</p>
                             <button type="button" class="btn btn-danger waves-effect m-r-20" data-toggle="modal" data-target="#largeModal">Ekspor</button>
                         </div>
                     </div>
@@ -63,22 +67,22 @@ error_reporting();
             <!-- #END# Modal Pop Ups --> 
             <!-- Modal Dialogs ====== --> 
             <!-- Large Size -->
-            <form action="" method="post">
             <div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="title" id="largeModalLabel">Ekspor Data</h4>
                         </div>
-                        <div class="modal-body"> Ekspor data berjenis file csv atau berformat excel. Ekspor dilakukan untuk mempermudah pencetakan hard copy. </div>
+                        <div class="modal-body"> Ekspor data berjenis file xls atau berformat excel. Ekspor dilakukan untuk mempermudah pencetakan hard copy. </div>
+                        <form action="proses_ekspor.php" method="post">
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger btn-round waves-effect">EKSPOR</button>
+                            <button type="submit" //name="btn_ekspor" class="btn btn-danger btn-round waves-effect">EKSPOR</button>
                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
+                        </form> 
                     </div>
                 </div>
             </div>
-            </form>  
         </div>
     </div>
 </section>

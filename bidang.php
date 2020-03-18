@@ -70,9 +70,6 @@ error_reporting();
                                     $i=1;
                                     $select=$pdo->prepare("select *, count(data_pegawai.id_pgw) as total from data_bidang left join data_pegawai on data_bidang.id=data_pegawai.kode_bidang group by data_bidang.id");
                                     $select->execute();
-                                    //$count=$pdo->prepare("select count(data_pegawai.id_pgw) as total from data_bidang join data_pegawai on data_bidang.id=data_pegawai.kode_bidang group by data_bidang.id");
-                                    //$count->execute();
-                                    //$total=$count->fetch(PDO::FETCH_OBJ);
                                     while($row=$select->fetch(PDO::FETCH_OBJ)){
                                         echo '
                                         <tr>

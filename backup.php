@@ -8,12 +8,6 @@ if($_SESSION['username']!="admin"){
 }
 include "header.php";
 error_reporting();
-//$date=date('d-m-Y-g-i-s');
-//$file="backup@".$date.".sql";
-// query untuk menampilkan semua tabel dalam database
-//$command = "mysqldump -u root -p bukutamu --single-transaction --quick --lock-tables=false > bukutamu-backup-$(date +%F).sql";
-//$hasil=$pdo->prepare($command);
-//$hasil->execute();
 
 if(isset($_POST['btn_backup'])){
     $date=date('d-m-Y-g-i-s');
