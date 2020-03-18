@@ -36,7 +36,7 @@ if(isset($_POST['btn_add'])){
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Laporan</span></a>
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Ekspor Data</a></li>
-                    <li><a href="chat.html">Backup Database</a></li>                   
+                    <li><a href="backup.php">Backup Database</a></li>                   
                 </ul>
             </li>
             </li>

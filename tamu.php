@@ -24,8 +24,8 @@ if (isset($_POST['btn_del'])){
             <li><a href="bidang.php"><i class="zmdi zmdi-account"></i><span>Bidang</span></a></li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Laporan</span></a>
                 <ul class="ml-menu">
-                    <li><a href="mail-inbox.html">Ekspor Data</a></li>
-                    <li><a href="chat.html">Backup Database</a></li>                   
+                    <li><a href="ekspor.php">Ekspor Data</a></li>
+                    <li><a href="backup.php">Backup Database</a></li>                   
                 </ul>
             </li>
             </li>
@@ -63,7 +63,7 @@ if (isset($_POST['btn_del'])){
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:void(0);">Update Data Pengunjung</a></li>
+                                        <!--<li><a href="javascript:void(0);">Update Data Pengunjung</a></li>-->
                                         <li><a href="javascript:void(0);">Tambah Data Pengunjung</a></li>
                                     </ul>
                                 </li>
