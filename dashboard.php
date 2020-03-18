@@ -58,7 +58,7 @@ $link = null;
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Dashboard ( total berdasarkan minggu dan bulan masih error )</h2>
+                <h2>Dashboard</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard.php"><i class="zmdi zmdi-home"></i> ABC</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
@@ -73,52 +73,10 @@ $link = null;
    <div class="container-fluid">
             <div class="row clearfix">
                 
-                <div class="col-md-6 col-sm-6 col-6 text-center">
-                    <div class="card">
-                        <div class="body">                            
-                            <input type="text" class="knob" value="81" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#ee2558" readonly>
-                            <p>Total<strong> Permasalahan Minggu Ini</strong></p>
-                            <div class="d-flex bd-highlight text-center mt-4">
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Hari ini</small>
-                                    <h5 class="mb-0"><?php echo $hasil1;?></h5>
-                                </div>
-                                <div class="flex-fill bd-highlight">
-                                    <small class="text-muted">Kemarin</small>
-                                    <h5 class="mb-0"><?php echo $hasil2;?></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-sm-6 col-6 text-center">
-                    <div class="card">
-                        <div class="body">                            
-                            <input type="text" class="knob" value="81" data-linecap="round" data-width="155" data-height="155" data-thickness="0.08" data-fgColor="#f67a82" readonly>
-                            <p>Total<strong> Permasalahan Bulan Ini</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
-        
             <div class="container-fluid">
                 <div class="card">
                     <div class="header">
-                        <h2><strong>Chart</strong> Permasalahan ( kasaran )</h2>
-                        <ul class="header-dropdown">
-                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                    <li><a href="javascript:void(0);">Edit</a></li>
-                                    <li><a href="javascript:void(0);">Delete</a></li>
-                                    <li><a href="javascript:void(0);">Report</a></li>
-                                </ul>
-                            </li>
-                            <li class="remove">
-                                <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                            </li>
-                        </ul>
+                        <h2><strong>Chart</strong> Permasalahan</h2>
                     </div>
                     <div class="body text-center">
                     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
@@ -133,21 +91,9 @@ $link = null;
                     <div class="card">
                         <div class="header">
                             <h2><strong>Pengunjung</strong> Terbaru</h2>
-                            <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else</a></li>
-                                    </ul>
-                                </li>
-                                <li class="remove">
-                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                                </li>
-                            </ul>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-hover c_table">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable"">
                                 <thead>
                                     <tr>
                                         <th style="width:60px;">#</th>

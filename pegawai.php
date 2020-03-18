@@ -51,14 +51,14 @@ if (isset($_POST['btn_del'])){
             </div>
         </div>
     </div>
-   
-        <div class="container-fluid">
-        <form role="form" action="" method="post">
+    <!-- Exportable Table -->
+    <div class="container-fluid">
+        <form role="form" action="" method="post"> 
             <div class="row clearfix">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Data</strong> Pegawai</h2>
+                            <h2><strong>Data</strong> Pegawai </h2>
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -66,25 +66,23 @@ if (isset($_POST['btn_del'])){
                                         <li><a href="input_pegawai.php">Tambah Data Pegawai</a></li>
                                     </ul>
                                 </li>
-                                <li class="remove">
-                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                                </li>
                             </ul>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover c_table">
-                                <thead>
-                                    <tr>
-                                        <th style="width:60px;">#</th>
-                                        <th>Nomor</th>
-                                        <th>Pegawai</th>
-                                        <th>NIP</th>
-                                        <th>Bidang</th>                     
-                                        <th>Jabatan</th>
-                                        <th>Hapus</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:60px;">#</th>
+                                            <th>Nomor</th>
+                                            <th>Pegawai</th>
+                                            <th>NIP</th>
+                                            <th>Bidang</th>                     
+                                            <th>Jabatan</th>
+                                            <th>Hapus</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                     <?php 
                                     $i=1;
                                     //$select=$pdo->prepare("select * from data_pegawai order by id_pgw asc");
@@ -104,14 +102,14 @@ if (isset($_POST['btn_del'])){
                                     }
                                     ?>
                                    
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-        </div>
     </div>
 </section>
 

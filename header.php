@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="assets/plugins/multi-select/css/multi-select.css">
 <!-- Bootstrap Select Css -->
 <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
+<!-- JQuery DataTable Css -->
+<link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
 <!-- Custom Css -->
 <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
