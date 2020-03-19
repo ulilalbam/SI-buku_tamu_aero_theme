@@ -119,7 +119,7 @@ if(isset($_POST['btn_add'])){
                                 $select->execute();
                                 while($row=$select->fetch(PDO::FETCH_ASSOC)){
                                     extract($row);
-                                    //echo "<option value='$row[0].$row[1]'>$row[0]. $row[1]</option>";
+                                    
                                     ?>
                                     <option value="<?php echo $row['id'];?>"><?php echo $row['nama'];?></option>
                                 <?php

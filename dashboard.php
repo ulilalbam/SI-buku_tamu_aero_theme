@@ -20,19 +20,6 @@ while ($row=$select->fetch(PDO::FETCH_OBJ))
     array_push($dataPoints, array("label"=> $row->nama, "y"=> $row->total));
 }
 $link = null;
-    //$dataPoints = array(
-        //array("label"=> $row['nama'], "y"=> 590),
-        
-    //);
-    //array_push($dataPoints, array("label" => $row['nama'], "y" => 21));
-
-    //$point = array("label" => $row['nama'], "y" => $row['']);
-
-//$dataPoints = array(
-	//array("label"=> "", "y"=> 590),
-	//array("label"=> "Activities and Entertainments", "y"=> 261),
-	//array("label"=> "Health and Fitness", "y"=> 158)
-//);
  ?>
 
 

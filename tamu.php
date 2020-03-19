@@ -86,7 +86,7 @@ if (isset($_POST['btn_del'])){
                                     <tbody>
                                     <?php 
                                     $i=1;
-                                    //$select=$pdo->prepare("select * from data_tamu order by id_tamu asc");
+                                    
                                     $select=$pdo->prepare("select data_tamu.id_tamu, data_tamu.nama_tamu, data_tamu.ket, data_pegawai.nama_pgw, data_bidang.nama, data_tamu.masuk from data_tamu join data_pegawai on data_tamu.kode_pgw=data_pegawai.id_pgw join data_bidang on data_pegawai.kode_bidang=data_bidang.id");
                                     $select->execute();
                                     while($row=$select->fetch(PDO::FETCH_OBJ)){
