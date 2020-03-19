@@ -62,7 +62,6 @@ if (isset($_POST['btn_del'])){
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <!--<li><a href="javascript:void(0);">Update Data Pegawai</a></li>-->
                                         <li><a href="input_pegawai.php">Tambah Data Pegawai</a></li>
                                     </ul>
                                 </li>
@@ -73,32 +72,33 @@ if (isset($_POST['btn_del'])){
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th style="width:60px;">#</th>
+                                            <!---<th style="width:60px;">#</th>-->
                                             <th>Nomor</th>
                                             <th>Pegawai</th>
                                             <th>NIP</th>
                                             <th>Bidang</th>                     
                                             <th>Jabatan</th>
+                                            <th>Edit</th>
                                             <th>Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php 
                                     $i=1;
-                                    //$select=$pdo->prepare("select * from data_pegawai order by id_pgw asc");
                                     $select=$pdo->prepare("select data_pegawai.id_pgw, data_pegawai.nama_pgw, data_pegawai.nip, data_bidang.nama, data_pegawai.jabatan from data_pegawai inner join data_bidang on data_pegawai.kode_bidang=data_bidang.id");
                                     $select->execute();
                                     while($row=$select->fetch(PDO::FETCH_OBJ)){
                                         echo '
                                         <tr>
-                                        <td>'.$row->id_pgw.'</td>
                                         <td>'.$row=$i++.'</td>
                                         <td>'.$row->nama_pgw.'</td>
                                         <td>'.$row->nip.'</td>
                                         <td>'.$row->nama.'</td>
                                         <td>'.$row->jabatan.'</td>
+                                        <td><a href="edit_pegawai.php?id_pgw='.$row->id_pgw.'" class="btn bg-orange waves-effect waves-light" role="button">Edit</a></td>
                                         <td><button type="submit" value="'.$row->id_pgw.'" class="btn bg-red waves-effect waves-light" name="btn_del">Hapus</button></td>
-                                    </tr>';
+                                        
+                                        </tr>';
                                     }
                                     ?>
                                    
