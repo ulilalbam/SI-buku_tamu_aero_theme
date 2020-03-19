@@ -30,15 +30,15 @@ if(isset($_POST['btn_save'])){
     $jabatan = $_POST['tambah_jabatan'];
     $bidang = $_POST['pilih_bidang'];
     
-    $update = $pdo->prepare("update data_pegawai set nama_pgw=:nama, nip=:nip, jabatan=:jabatan, kode_bidang=:kode) where id_pgw=$id");
+    $update = $pdo->prepare("update data_pegawai set nama_pgw=:nama_pgw, nip=:nip, jabatan=:jabatan, kode_bidang=:kode_bidang where id_pgw=$id");
 
-            $update->bindParam(':nama',$nama);
+            $update->bindParam(':nama_pgw',$nama);
             $update->bindParam(':nip',$nip);
             $update->bindParam(':jabatan',$jabatan);
-            $update->bindParam(':kode',$bidang);
+            $update->bindParam(':kode_bidang',$bidang);
             
             $update->execute();
-            //header( "refresh:0;url=pegawai.php" );
+            header( "refresh:0;url=pegawai.php" );
 }else{
     echo "update gagal";
 }
@@ -138,7 +138,7 @@ if(isset($_POST['btn_save'])){
                                                 extract($row);
                                             ?>
                                             
-                                            <option <?php if($row['id']==$pkode_db){?>
+                                            <option value="<?php echo $row['id']?>" <?php if($row['id']==$pkode_db){?>
                                             selected="selected"
                                             <?php }?>
                                             
