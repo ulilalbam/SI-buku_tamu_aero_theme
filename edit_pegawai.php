@@ -16,28 +16,31 @@ $select=$pdo->prepare("select * from data_pegawai where id_pgw=$id");
 $select->execute();
 $row=$select->fetch(PDO::FETCH_ASSOC);
 
-$id_db=$row['id_pgw'];
+//$id_db=$row['id_pgw'];
 $pname_db=$row['nama_pgw'];
 $pnip_db=$row['nip'];
 $pjabatan_db=$row['jabatan'];
 $pkode_db=$row['kode_bidang'];
 
 
-if(isset($_POST['btn_update'])){
+if(isset($_POST['btn_save'])){
     
     $nama = $_POST['tambah_namapgw'];
     $nip = $_POST['tambah_nip'];
     $jabatan = $_POST['tambah_jabatan'];
     $bidang = $_POST['pilih_bidang'];
     
-    $insert = $pdo->prepare("update data_pegawai set nama_pgw,nip,jabatan,kode_bidang) values(:pname,:pnip,:pjabatan,:pkode)");
-            $insert->bindParam(':pname',$nama);
-            $insert->bindParam(':pnip',$nip);
-            $insert->bindParam(':pjabatan',$jabatan);
-            $insert->bindParam(':pkode',$bidang);
+    $update = $pdo->prepare("update data_pegawai set nama_pgw=:nama, nip=:nip, jabatan=:jabatan, kode_bidang=:kode) where id_pgw=$id");
+
+            $update->bindParam(':nama',$nama);
+            $update->bindParam(':nip',$nip);
+            $update->bindParam(':jabatan',$jabatan);
+            $update->bindParam(':kode',$bidang);
             
-            $insert->execute();
-            header( "refresh:0;url=pegawai.php" );
+            $update->execute();
+            //header( "refresh:0;url=pegawai.php" );
+}else{
+    echo "update gagal";
 }
  ?>
 
@@ -150,11 +153,8 @@ if(isset($_POST['btn_update'])){
                                <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4">
                                         </div>
-                                    <div class="m-l-20 inlineblock">
-                                            <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect" name="btn_update">Tambahkan</button>
-                                        </div>
                                         <div class="m-l-20 inlineblock">
-                                            <button type="button" class="btn btn-raised btn-danger btn-round waves-effect">Reset</button>
+                                            <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect" name="btn_save">Save</button>
                                         </div>
                                 </div>
                             </form>
