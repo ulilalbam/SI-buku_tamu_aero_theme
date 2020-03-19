@@ -115,7 +115,7 @@ if(isset($_POST['btn_add'])){
                                             <select class="form-control show-tick ms select2" name="pilih_bidang" required>
                                             <option value="" disabled  selected>Pilih Bidang</option>
                                             <?php
-                                $select=$pdo->prepare("select * from data_bidang order by id desc");
+                                $select=$pdo->prepare("select * from data_bidang order by id asc");
                                 $select->execute();
                                 while($row=$select->fetch(PDO::FETCH_ASSOC)){
                                     extract($row);

@@ -134,7 +134,8 @@ if(isset($_POST['btn_update'])){
                                                 while($row=$select->fetch(PDO::FETCH_ASSOC)){
                                                 extract($row);
                                             ?>
-                                            <option <?php if($row['kode_bdg']==$pkode_db){?>
+                                            
+                                            <option <?php if($row['id']==$pkode_db){?>
                                             selected="selected"
                                             <?php }?>
                                             
